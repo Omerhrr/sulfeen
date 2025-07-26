@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sulfeen Global Venture - Premium Products & Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.2/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#1e293b',
+                        accent: '#0ea5e9',
+                        highlight: '#8b5cf6',
+                        success: '#10b981'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+        .hero-pattern {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .glow {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+        }
+        .crypto-gradient {
+            background: linear-gradient(45deg, #8b5cf6, #0ea5e9, #8b5cf6);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .category-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-primary/90 backdrop-blur-sm border-b border-secondary">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                    <i class="fas fa-globe text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold">Sulfeen<span class="text-accent">Global</span></h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-accent transition">Home</a>
+                <a href="#services" class="hover:text-accent transition">Services</a>
+                <a href="#products" class="hover:text-accent transition">Products</a>
+                <a href="#crypto" class="hover:text-accent transition">Crypto Exchange</a>
+                <a href="#contact" class="hover:text-accent transition">Contact</a>
+            </nav>
+            
+            <button class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Gateway to Premium Products & Services</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Quality clothing, electronics, and seamless crypto exchange - all in one place</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button 
+                    hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order"
+                    hx-target="body"
+                    class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full text-lg transition-all glow"
+                >
+                    Order Now <i class="fas fa-shopping-cart ml-2"></i>
+                </button>
+                <button 
+                    hx-get="#services"
+                    hx-target="body"
+                    class="bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold py-3 px-8 rounded-full text-lg transition"
+                >
+                    Explore Services
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Premium Services</h2>
+                <p class="text-lg max-w-2xl mx-auto">Discover the wide range of products and services we offer to meet all your needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-primary rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tshirt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Clothing & Shoes</h3>
+                    <p class="mb-4">Trendy fashion for men, women, and kids. Premium brands and quality materials.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20clothing%20and%20shoes"
+                        class="text-accent hover:text-accent/80 font-medium"
+                    >
+                        Order Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-primary rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-highlight/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-home text-highlight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Home Appliances</h3>
+                    <p class="mb-4">Modern appliances to make your home smarter and more comfortable.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20home%20appliances"
+                        class="text-highlight hover:text-highlight/80 font-medium"
+                    >
+                        Order Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-primary rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mobile-alt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Phones & Accessories</h3>
+                    <p class="mb-4">Latest smartphones and premium accessories for tech enthusiasts.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20phones%20and%20accessories"
+                        class="text-accent hover:text-accent/80 font-medium"
+                    >
+                        Order Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-primary rounded-xl p-6 text-center crypto-gradient">
+                    <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-bitcoin text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Crypto Exchange</h3>
+                    <p class="mb-4">Secure peer-to-peer cryptocurrency exchange with competitive rates.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20exchange%20cryptocurrency"
+                        class="text-white hover:text-gray-200 font-medium"
+                    >
+                        Exchange Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- New Services -->
+                <div class="service-card bg-primary rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-credit-card text-success text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">POS Services</h3>
+                    <p class="mb-4">Secure point-of-sale solutions for businesses of all sizes.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20POS%20services"
+                        class="text-success hover:text-success/80 font-medium"
+                    >
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <div class="service-card bg-primary rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-money-bill-wave text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Money Withdrawal</h3>
+                    <p class="mb-4">Fast and affordable money withdrawal services at competitive rates.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20withdraw%20money%20at%20cheaper%20rates"
+                        class="text-accent hover:text-accent/80 font-medium"
+                    >
+                        Request Service <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                
+                
+                <div class="service-card bg-primary rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-success text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+                    <p class="mb-4">Round-the-clock customer support for all your inquiries.</p>
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20need%20customer%20support"
+                        class="text-success hover:text-success/80 font-medium"
+                    >
+                        Contact Us <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Products</h2>
+                <p class="text-lg max-w-2xl mx-auto">Explore our premium selection of products across all categories</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Men's Clothing -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Men's Suit" class="w-full h-full object-cover">
+                        <div class="category-badge bg-accent text-white">Men</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Premium Men's Suit</h3>
+                        <p class="text-gray-400 mb-4">Tailored fit with premium fabric for formal occasions</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Premium%20Men's%20Suit"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Women's Clothing -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Women's Dress" class="w-full h-full object-cover">
+                        <div class="category-badge bg-highlight text-white">Women</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Elegant Evening Dress</h3>
+                        <p class="text-gray-400 mb-4">Flowing silhouette with intricate detailing for special events</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Elegant%20Evening%20Dress"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Children's Clothing -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Outfit" class="w-full h-full object-cover">
+                        <div class="category-badge bg-success text-white">Children</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Kids Casual Outfit</h3>
+                        <p class="text-gray-400 mb-4">Comfortable and stylish for everyday wear</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Kids%20Casual%20Outfit"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Men's Shoes -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Men's Shoes" class="w-full h-full object-cover">
+                        <div class="category-badge bg-accent text-white">Men</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Leather Formal Shoes</h3>
+                        <p class="text-gray-400 mb-4">Premium leather with comfortable insole for all-day wear</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Leather%20Formal%20Shoes"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Women's Shoes -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Women's Shoes" class="w-full h-full object-cover">
+                        <div class="category-badge bg-highlight text-white">Women</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Designer Heels</h3>
+                        <p class="text-gray-400 mb-4">Elegant design with comfortable heel height</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Designer%20Heels"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Children's Shoes -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1578932395183-19c0e9a6dd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoes" class="w-full h-full object-cover">
+                        <div class="category-badge bg-success text-white">Children</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Kids Sports Shoes</h3>
+                        <p class="text-gray-400 mb-4">Lightweight and durable for active children</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Kids%20Sports%20Shoes"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Accessories -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Designer Jacket" class="w-full h-full object-cover">
+                        <div class="category-badge bg-accent text-white">Accessories</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Designer Winter Jacket</h3>
+                        <p class="text-gray-400 mb-4">Premium winter jacket with waterproof technology</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Electronics -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bluetooth Speaker" class="w-full h-full object-cover">
+                        <div class="category-badge bg-highlight text-white">Electronics</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Bluetooth Speaker</h3>
+                        <p class="text-gray-400 mb-4">360° sound with deep bass and 20-hour battery</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Home Appliances -->
+                <div class="product-card bg-secondary rounded-xl overflow-hidden">
+                    <div class="h-56 bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Laptop" class="w-full h-full object-cover">
+                        <div class="category-badge bg-success text-white">Appliances</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Ultrabook Laptop</h3>
+                        <p class="text-gray-400 mb-4">Lightweight design with powerful performance</p>
+                        <button 
+                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
+                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
+                        >
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crypto Exchange Section -->
+    <section id="crypto" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Peer-to-Peer Crypto Exchange</h2>
+                    <p class="text-lg mb-6">Secure and reliable cryptocurrency exchange with competitive rates. We support major cryptocurrencies including Bitcoin, Ethereum, and more.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-accent"></i>
+                            </div>
+                            <span>Secure transactions with escrow protection</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-bolt text-accent"></i>
+                            </div>
+                            <span>Fast processing within 24 hours</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-percent text-accent"></i>
+                            </div>
+                            <span>Competitive exchange rates</span>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
+                        class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full text-lg transition glow"
+                    >
+                        Start Exchange <i class="fas fa-exchange-alt ml-2"></i>
+                    </button>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-primary rounded-2xl p-8">
+                        <div class="flex justify-between items-center mb-8">
+                            <h3 class="text-2xl font-bold">Exchange Information</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold mb-3">Supported Cryptocurrencies</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-secondary px-4 py-2 rounded-full">Bitcoin (BTC)</span>
+                                    <span class="bg-secondary px-4 py-2 rounded-full">Ethereum (ETH)</span>
+                                    <span class="bg-secondary px-4 py-2 rounded-full">USDT</span>
+                                    <span class="bg-secondary px-4 py-2 rounded-full">BNB</span>
+                                    <span class="bg-secondary px-4 py-2 rounded-full">Solana (SOL)</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold mb-3">Exchange Process</h4>
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li>Contact us via WhatsApp to initiate exchange</li>
+                                    <li>Agree on exchange rate and terms</li>
+                                    <li>Send cryptocurrency to our secure wallet</li>
+                                    <li>Receive fiat currency in your account</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="pt-4 border-t border-gray-700">
+                                <p class="text-gray-400"><i class="fas fa-info-circle text-accent mr-2"></i> All transactions are secured with escrow protection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
+                <p class="text-lg mb-12">Have questions or ready to place an order? Reach out to us anytime!</p>
+                
+                <div class="bg-secondary rounded-2xl p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Call Us</h4>
+                                <p>+2349020333328</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email Us</h4>
+                                <p>sulaimanauwal512.gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                                <i class="fab fa-whatsapp text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">WhatsApp</h4>
+                                <p>+1 (555) 987-6543</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        hx-get="https://wa.me/1234567890?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order"
+                        class="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-10 rounded-full text-lg transition glow mx-auto flex items-center"
+                    >
+                        Place Order on WhatsApp <i class="fab fa-whatsapp ml-3 text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold">Sulfeen<span class="text-accent">Global</span></h2>
+                    </div>
+                    <p class="text-gray-400 mb-6">Your trusted partner for premium products and services worldwide.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/14H4aWT7RHA" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.x.com/sulfeen599" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sulfeen599" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+<!--                         <a href="#" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a> -->
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-accent transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-accent transition">Services</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-accent transition">Products</a></li>
+                        <li><a href="#crypto" class="text-gray-400 hover:text-accent transition">Crypto Exchange</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Clothing & Shoes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Home Appliances</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Phones & Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Crypto Exchange</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">POS Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Money Withdrawal</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on new products and special offers.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="bg-secondary py-3 px-4 rounded-l-lg focus:outline-none w-full">
+                        <button class="bg-accent hover:bg-accent/90 py-3 px-6 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Sulfeen Global Venture. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
