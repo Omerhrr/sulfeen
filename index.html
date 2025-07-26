@@ -16,8 +16,7 @@
                         primary: '#0f172a',
                         secondary: '#1e293b',
                         accent: '#0ea5e9',
-                        highlight: '#8b5cf6',
-                        success: '#10b981'
+                        highlight: '#8b5cf6'
                     }
                 }
             }
@@ -69,15 +68,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        .category-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -111,20 +101,15 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Your Gateway to Premium Products & Services</h1>
             <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Quality clothing, electronics, and seamless crypto exchange - all in one place</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button 
-                    hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                    hx-target="body"
-                    class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full text-lg transition-all glow"
-                >
+                <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order" 
+                   target="_blank"
+                   class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full text-lg transition-all glow">
                     Order Now <i class="fas fa-shopping-cart ml-2"></i>
-                </button>
-                <button 
-                    hx-get="#services"
-                    hx-target="body"
-                    class="bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold py-3 px-8 rounded-full text-lg transition"
-                >
+                </a>
+                <a href="#services" 
+                   class="bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold py-3 px-8 rounded-full text-lg transition">
                     Explore Services
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -145,12 +130,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Clothing & Shoes</h3>
                     <p class="mb-4">Trendy fashion for men, women, and kids. Premium brands and quality materials.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                        class="text-accent hover:text-accent/80 font-medium"
-                    >
+                    <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20clothing%20and%20shoes" 
+                       target="_blank"
+                       class="text-accent hover:text-accent/80 font-medium">
                         Order Now <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
+                    </a>
                 </div>
                 
                 <!-- Service 2 -->
@@ -160,12 +144,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Home Appliances</h3>
                     <p class="mb-4">Modern appliances to make your home smarter and more comfortable.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                        class="text-highlight hover:text-highlight/80 font-medium"
-                    >
+                    <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20home%20appliances" 
+                       target="_blank"
+                       class="text-highlight hover:text-highlight/80 font-medium">
                         Order Now <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
+                    </a>
                 </div>
                 
                 <!-- Service 3 -->
@@ -175,12 +158,11 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Phones & Accessories</h3>
                     <p class="mb-4">Latest smartphones and premium accessories for tech enthusiasts.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                        class="text-accent hover:text-accent/80 font-medium"
-                    >
+                    <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20phones%20and%20accessories" 
+                       target="_blank"
+                       class="text-accent hover:text-accent/80 font-medium">
                         Order Now <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
+                    </a>
                 </div>
                 
                 <!-- Service 4 -->
@@ -190,58 +172,12 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Crypto Exchange</h3>
                     <p class="mb-4">Secure peer-to-peer cryptocurrency exchange with competitive rates.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                        class="text-white hover:text-gray-200 font-medium"
-                    >
+                    <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20exchange%20cryptocurrency" 
+                       target="_blank"
+                       class="text-white hover:text-gray-200 font-medium">
                         Exchange Now <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
+                    </a>
                 </div>
-                
-                <!-- New Services -->
-                <div class="service-card bg-primary rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-credit-card text-success text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">POS Services</h3>
-                    <p class="mb-4">Secure point-of-sale solutions for businesses of all sizes.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                        class="text-success hover:text-success/80 font-medium"
-                    >
-                        Learn More <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-                
-                <div class="service-card bg-primary rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-money-bill-wave text-accent text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Money Withdrawal</h3>
-                    <p class="mb-4">Fast and affordable money withdrawal services at competitive rates.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                        class="text-accent hover:text-accent/80 font-medium"
-                    >
-                        Request Service <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-                
-                
-                
-<!--                 <div class="service-card bg-primary rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-headset text-success text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
-                    <p class="mb-4">Round-the-clock customer support for all your inquiries.</p>
-                    <button 
-                        hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20need%20customer%20support"
-                        class="text-success hover:text-success/80 font-medium"
-                    >
-                        Contact Us <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div> -->
             </div>
         </div>
     </section>
@@ -251,169 +187,66 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Products</h2>
-                <p class="text-lg max-w-2xl mx-auto">Explore our premium selection of products across all categories</p>
+                <p class="text-lg max-w-2xl mx-auto">Explore our premium selection of products</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Men's Clothing -->
+                <!-- Product 1 -->
                 <div class="product-card bg-secondary rounded-xl overflow-hidden">
                     <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Men's Suit" class="w-full h-full object-cover">
-                        <div class="category-badge bg-accent text-white">Men</div>
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Smart Watch" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Premium Men's Suit</h3>
-                        <p class="text-gray-400 mb-4">Tailored fit with premium fabric for formal occasions</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Premium%20Men's%20Suit"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Smart Watch Pro</h3>
+                            <span class="text-accent font-bold">$199</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Advanced health tracking with 7-day battery life</p>
+                        <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Smart%20Watch%20Pro" 
+                           target="_blank"
+                           class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition block text-center">
                             Order Now
-                        </button>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Women's Clothing -->
+                <!-- Product 2 -->
                 <div class="product-card bg-secondary rounded-xl overflow-hidden">
                     <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Women's Dress" class="w-full h-full object-cover">
-                        <div class="category-badge bg-highlight text-white">Women</div>
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Wireless Headphones" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-highlight text-white text-xs font-bold px-3 py-1 rounded-full">Sale</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Elegant Evening Dress</h3>
-                        <p class="text-gray-400 mb-4">Flowing silhouette with intricate detailing for special events</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Wireless Headphones</h3>
+                            <span class="text-accent font-bold">$129</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Noise cancelling with 30-hour battery life</p>
+                        <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Wireless%20Headphones" 
+                           target="_blank"
+                           class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition block text-center">
                             Order Now
-                        </button>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Children's Clothing -->
-<!--                 <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Outfit" class="w-full h-full object-cover">
-                        <div class="category-badge bg-success text-white">Children</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Kids Casual Outfit</h3>
-                        <p class="text-gray-400 mb-4">Comfortable and stylish for everyday wear</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Kids%20Casual%20Outfit"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
-                            Order Now
-                        </button>
-                    </div>
-                </div> -->
-                
-                <!-- Men's Shoes -->
-                <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Men's Shoes" class="w-full h-full object-cover">
-                        <div class="category-badge bg-accent text-white">Women</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Leather Formal Shoes</h3>
-                        <p class="text-gray-400 mb-4">Premium leather with comfortable insole for all-day wear</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
-                            Order Now
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Women's Shoes -->
-                <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Women's Shoes" class="w-full h-full object-cover">
-                        <div class="category-badge bg-highlight text-white">Men</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Designer Heels</h3>
-                        <p class="text-gray-400 mb-4">Elegant design with comfortable heel height</p>
-                        <button 
-                           hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
-                            Order Now
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Children's Shoes -->
-<!--                 <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1578932395183-19c0e9a6dd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoes" class="w-full h-full object-cover">
-                        <div class="category-badge bg-success text-white">Children</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Kids Sports Shoes</h3>
-                        <p class="text-gray-400 mb-4">Lightweight and durable for active children</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Kids%20Sports%20Shoes"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
-                            Order Now
-                        </button>
-                    </div>
-                </div> -->
-                
-                <!-- Accessories -->
+                <!-- Product 3 -->
                 <div class="product-card bg-secondary rounded-xl overflow-hidden">
                     <div class="h-56 bg-gray-800 relative">
                         <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Designer Jacket" class="w-full h-full object-cover">
-                        <div class="category-badge bg-accent text-white">Accessories</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Designer Winter Jacket</h3>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Designer Jacket</h3>
+                            <span class="text-accent font-bold">$89</span>
+                        </div>
                         <p class="text-gray-400 mb-4">Premium winter jacket with waterproof technology</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
+                        <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Designer%20Jacket" 
+                           target="_blank"
+                           class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition block text-center">
                             Order Now
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Electronics -->
-                <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bluetooth Speaker" class="w-full h-full object-cover">
-                        <div class="category-badge bg-highlight text-white">Electronics</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Bluetooth Speaker</h3>
-                        <p class="text-gray-400 mb-4">360° sound with deep bass and 20-hour battery</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
-                            Order Now
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Home Appliances -->
-                <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Laptop" class="w-full h-full object-cover">
-                        <div class="category-badge bg-success text-white">Appliances</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Ultrabook Laptop</h3>
-                        <p class="text-gray-400 mb-4">Lightweight design with powerful performance</p>
-                        <button 
-                            hx-get="https://wa.me/message/SNTZWTXVMZQGF1"
-                            class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition"
-                        >
-                            Order Now
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -449,65 +282,28 @@
                         </div>
                     </div>
                     
-                    <button 
-                        hx-get="https://wa.me/message/2349020333328"
-                        class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full text-lg transition glow"
-                    >
+                    <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20exchange%20cryptocurrency" 
+                       target="_blank"
+                       class="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-8 rounded-full text-lg transition glow inline-block">
                         Start Exchange <i class="fas fa-exchange-alt ml-2"></i>
-                    </button>
+                    </a>
                 </div>
                 
-                <div class="lg:w-1/2">
-                    <div class="bg-primary rounded-2xl p-8">
-                        <div class="flex justify-between items-center mb-8">
-                            <h3 class="text-2xl font-bold">Exchange Information</h3>
-                            <div class="flex space-x-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="font-bold mb-3">Supported Cryptocurrencies</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-secondary px-4 py-2 rounded-full">Bitcoin (BTC)</span>
-                                    <span class="bg-secondary px-4 py-2 rounded-full">Ethereum (ETH)</span>
-                                    <span class="bg-secondary px-4 py-2 rounded-full">USDT</span>
-                                    <span class="bg-secondary px-4 py-2 rounded-full">BNB</span>
-                                    <span class="bg-secondary px-4 py-2 rounded-full">Solana (SOL)</span>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <h4 class="font-bold mb-3">Exchange Process</h4>
-                                <ol class="list-decimal list-inside space-y-2">
-                                    <li>Contact us via WhatsApp to initiate exchange</li>
-                                    <li>Agree on exchange rate and terms</li>
-                                    <li>Send cryptocurrency to our secure wallet</li>
-                                    <li>Receive fiat currency in your account</li>
-                                </ol>
-                            </div>
-                            
-                            <div class="pt-4 border-t border-gray-700">
-                                <p class="text-gray-400"><i class="fas fa-info-circle text-accent mr-2"></i> All transactions are secured with escrow protection</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials -->
+   
+
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 bg-secondary">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
                 <p class="text-lg mb-12">Have questions or ready to place an order? Reach out to us anytime!</p>
                 
-                <div class="bg-secondary rounded-2xl p-8 md:p-12">
+                <div class="bg-primary rounded-2xl p-8 md:p-12">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
                         <div class="flex items-center">
                             <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mr-4">
@@ -535,18 +331,8 @@
                             </div>
                             <div>
                                 <h4 class="font-bold">WhatsApp</h4>
-                                <p>+1 (555) 987-6543</p>
+                                <p>+2349020333328</p>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <button 
-                        hx-get="https://wa.me/1234567890?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order"
-                        class="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-10 rounded-full text-lg transition glow mx-auto flex items-center"
-                    >
-                        Place Order on WhatsApp <i class="fab fa-whatsapp ml-3 text-2xl"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </section>
@@ -563,7 +349,7 @@
                         <h2 class="text-2xl font-bold">Sulfeen<span class="text-accent">Global</span></h2>
                     </div>
                     <p class="text-gray-400 mb-6">Your trusted partner for premium products and services worldwide.</p>
-                    <div class="flex space-x-4">
+                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/share/14H4aWT7RHA" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -573,11 +359,7 @@
                         <a href="https://www.instagram.com/sulfeen599" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
                             <i class="fab fa-instagram"></i>
                         </a>
-<!--                         <a href="#" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a> -->
                     </div>
-                </div>
                 
                 <div>
                     <h3 class="text-lg font-bold mb-6">Quick Links</h3>
@@ -597,8 +379,7 @@
                         <li><a href="#" class="text-gray-400 hover:text-accent transition">Home Appliances</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-accent transition">Phones & Accessories</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-accent transition">Crypto Exchange</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition">POS Services</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Money Withdrawal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-accent transition">Customer Support</a></li>
                     </ul>
                 </div>
                 
