@@ -68,9 +68,54 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        .marquee {
+            display: flex;
+            overflow: hidden;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-content img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 20px;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        .category-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-menu {
+                display: none;
+            }
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col" x-data="{ mobileMenuOpen: false }">
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-primary/90 backdrop-blur-sm border-b border-secondary">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -81,6 +126,7 @@
                 <h1 class="text-2xl font-bold">Sulfeen<span class="text-accent">Global</span></h1>
             </div>
             
+            <!-- Desktop Menu -->
             <nav class="hidden md:flex space-x-8">
                 <a href="#home" class="hover:text-accent transition">Home</a>
                 <a href="#services" class="hover:text-accent transition">Services</a>
@@ -89,9 +135,21 @@
                 <a href="#contact" class="hover:text-accent transition">Contact</a>
             </nav>
             
-            <button class="md:hidden text-2xl">
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-2xl">
                 <i class="fas fa-bars"></i>
             </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" class="md:hidden bg-secondary border-t border-gray-700">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" @click="mobileMenuOpen = false" class="hover:text-accent transition py-2">Home</a>
+                <a href="#services" @click="mobileMenuOpen = false" class="hover:text-accent transition py-2">Services</a>
+                <a href="#products" @click="mobileMenuOpen = false" class="hover:text-accent transition py-2">Products</a>
+                <a href="#crypto" @click="mobileMenuOpen = false" class="hover:text-accent transition py-2">Crypto Exchange</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="hover:text-accent transition py-2">Contact</a>
+            </div>
         </div>
     </header>
 
@@ -182,6 +240,123 @@
         </div>
     </section>
 
+    <!-- Marquee Sections -->
+    <!-- Clothing Marquee -->
+    <section class="py-10 bg-primary">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-6 text-center">Clothing & Shoes Collection</h3>
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Men's Fashion">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Women's Fashion">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Shoes">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a4bae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Kids Fashion">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Formal Wear">
+                    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Evening Dress">
+                    <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Casual Wear">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Sports Wear">
+                </div>
+                <div class="marquee-content">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Men's Fashion">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Women's Fashion">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Shoes">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a4bae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Kids Fashion">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Formal Wear">
+                    <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Evening Dress">
+                    <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Casual Wear">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Sports Wear">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Appliances Marquee -->
+    <section class="py-10 bg-secondary">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-6 text-center">Home Appliances Collection</h3>
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="https://images.unsplash.com/photo-1526308342272-e3c60570551d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Refrigerator">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Washing Machine">
+                    <img src="https://images.unsplash.com/photo-1593696140826-c58b021acf8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Microwave">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Air Conditioner">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Television">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Vacuum Cleaner">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Blender">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Coffee Maker">
+                </div>
+                <div class="marquee-content">
+                    <img src="https://images.unsplash.com/photo-1526308342272-e3c60570551d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Refrigerator">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Washing Machine">
+                    <img src="https://images.unsplash.com/photo-1593696140826-c58b021acf8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Microwave">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Air Conditioner">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Television">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Vacuum Cleaner">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Blender">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Coffee Maker">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phones & Accessories Marquee -->
+    <section class="py-10 bg-primary">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-6 text-center">Phones & Accessories Collection</h3>
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Smartphone">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Headphones">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Wireless Earbuds">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Smart Watch">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Phone Case">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Power Bank">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Charger">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Screen Protector">
+                </div>
+                <div class="marquee-content">
+                    <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Smartphone">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Headphones">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Wireless Earbuds">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Smart Watch">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Phone Case">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Power Bank">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Charger">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Screen Protector">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crypto Exchange Marquee -->
+    // <section class="py-10 bg-secondary">
+    //     <div class="container mx-auto px-4">
+    //         <h3 class="text-2xl font-bold mb-6 text-center">Supported Cryptocurrencies</h3>
+    //         <div class="marquee">
+    //             <div class="marquee-content">
+    //                 <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Bitcoin">
+    //                 <img src="https://images.unsplash.com/photo-1620336655052-b57986f5a26a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Ethereum">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Litecoin">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Ripple">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Cardano">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Polkadot">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Chainlink">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Stellar">
+    //             </div>
+    //             <div class="marquee-content">
+    //                 <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Bitcoin">
+    //                 <img src="https://images.unsplash.com/photo-1620336655052-b57986f5a26a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Ethereum">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Litecoin">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Ripple">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Cardano">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Polkadot">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Chainlink">
+    //                 <img src="https://images.unsplash.com/photo-1622166230824-3c3e3c3c3c3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Stellar">
+    //             </div>
+    //         </div>
+    //     </div>
+    // </section>
+
     <!-- Products Section -->
     <section id="products" class="py-20">
         <div class="container mx-auto px-4">
@@ -189,39 +364,6 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Products</h2>
                 <p class="text-lg max-w-2xl mx-auto">Explore our premium selection of products</p>
             </div>
-
-            <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Men's Suit" class="w-full h-full object-cover">
-                        <div class="category-badge bg-accent text-white">Men</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Premium Men's Suit</h3>
-                        <p class="text-gray-400 mb-4">Tailored fit with premium fabric for formal occasions</p>
-                        <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20men%20clothings" 
-                           target="_blank"
-                           class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition block text-center">
-                            Order Now
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Women's Clothing -->
-                <div class="product-card bg-secondary rounded-xl overflow-hidden">
-                    <div class="h-56 bg-gray-800 relative">
-                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Women's Dress" class="w-full h-full object-cover">
-                        <div class="category-badge bg-highlight text-white">Women</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Elegant Evening Dress</h3>
-                        <p class="text-gray-400 mb-4">Flowing silhouette with intricate detailing for special events</p>
-                        <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20women%20clothings" 
-                           target="_blank"
-                           class="w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-lg transition block text-center">
-                            Order Now
-                        </a>
-                    </div>
-                </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product 1 -->
@@ -233,7 +375,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold">Smart Watch Pro</h3>
-                          
                         </div>
                         <p class="text-gray-400 mb-4">Advanced health tracking with 7-day battery life</p>
                         <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Smart%20Watch%20Pro" 
@@ -253,7 +394,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold">Wireless Headphones</h3>
-                           
                         </div>
                         <p class="text-gray-400 mb-4">Noise cancelling with 30-hour battery life</p>
                         <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Wireless%20Headphones" 
@@ -272,7 +412,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-bold">Designer Jacket</h3>
-                        
                         </div>
                         <p class="text-gray-400 mb-4">Premium winter jacket with waterproof technology</p>
                         <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Designer%20Jacket" 
@@ -322,12 +461,12 @@
                     </a>
                 </div>
                 
+                
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-   
+ 
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-secondary">
@@ -354,7 +493,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold">Email Us</h4>
-                                <p>sulaimanauwal512.gmail.com</p>
+                                <p>sulaimanauwal512@gmail.com</p>
                             </div>
                         </div>
                         
@@ -366,6 +505,15 @@
                                 <h4 class="font-bold">WhatsApp</h4>
                                 <p>+2349020333328</p>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/2349020333328?text=Hello%2C%20I%20would%20like%20to%20place%20an%20order" 
+                       target="_blank"
+                       class="bg-accent hover:bg-accent/90 text-white font-bold py-4 px-10 rounded-full text-lg transition glow mx-auto flex items-center w-max">
+                        Place Order on WhatsApp <i class="fab fa-whatsapp ml-3 text-2xl"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -382,7 +530,7 @@
                         <h2 class="text-2xl font-bold">Sulfeen<span class="text-accent">Global</span></h2>
                     </div>
                     <p class="text-gray-400 mb-6">Your trusted partner for premium products and services worldwide.</p>
-                     <div class="flex space-x-4">
+                    <div class="flex space-x-4">
                         <a href="https://www.facebook.com/share/14H4aWT7RHA" class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-accent transition">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -393,6 +541,7 @@
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
+                </div>
                 
                 <div>
                     <h3 class="text-lg font-bold mb-6">Quick Links</h3>
